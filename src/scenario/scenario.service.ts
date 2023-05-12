@@ -1,4 +1,4 @@
-git import { Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CreateScenarioDto } from './dto/create-scenario.dto';
 import { UpdateScenarioDto } from './dto/update-scenario.dto';
 
