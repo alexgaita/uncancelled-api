@@ -9,7 +9,6 @@ import { EpisodesModule } from './episodes/episodes.module';
 import { ScenarioModule } from './scenario/scenario.module';
 import { TagModule } from './tag/tag.module';
 import { ParagraphModule } from './paragraph/paragraph.module';
-<<<<<<< HEAD
 // import { InitService } from './init.service';
 
 @Module({
@@ -22,17 +21,6 @@ import { ParagraphModule } from './paragraph/paragraph.module';
     TagModule,
     ParagraphModule,
   ],
-=======
-import { InitService } from './init.service';
-import { DatabaseModule } from './shared/database.module';
-import { SequelizeModule } from '@nestjs/sequelize';
-import { Tvseries } from './tvseries/entity/tvseries.model';
-import { TvseriesService } from './tvseries/tvseries.service';
-
-@Module({
-  imports: [TvseriesModule, SeasonsModule, ChatgptModule, EpisodesModule, ScenarioModule, TagModule, ParagraphModule,
-  DatabaseModule, SequelizeModule.forFeature([Tvseries])],
->>>>>>> 19102c16 (apc: implement stuff)
   controllers: [AppController],
   providers: [AppService/*, InitService*/],
 })
