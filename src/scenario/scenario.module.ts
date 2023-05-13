@@ -6,9 +6,11 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { Scenario } from './entity/scenario.model';
 import { ChatgptService } from '../chatgpt/chatgpt.service';
 import { TvseriesService } from '../tvseries/tvseries.service';
+import { HttpModule } from '@nestjs/axios';
+import { Tvseries } from 'src/tvseries/entity/tvseries.model';
 
 @Module({
-  imports: [DatabaseModule, SequelizeModule.forFeature([Scenario])],
+  imports: [DatabaseModule, SequelizeModule.forFeature([Tvseries, Scenario]), HttpModule],
   controllers: [ScenarioController],
   providers: [ScenarioService, ChatgptService, TvseriesService],
 })

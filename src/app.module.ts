@@ -9,7 +9,10 @@ import { EpisodesModule } from './episodes/episodes.module';
 import { ScenarioModule } from './scenario/scenario.module';
 import { TagModule } from './tag/tag.module';
 import { ParagraphModule } from './paragraph/paragraph.module';
-// import { InitService } from './init.service';
+import { InitService } from './init.service';
+import { DatabaseModule } from './shared/database.module';
+import { SequelizeModule } from '@nestjs/sequelize';
+import { Tvseries } from './tvseries/entity/tvseries.model';
 
 @Module({
   imports: [
@@ -20,8 +23,10 @@ import { ParagraphModule } from './paragraph/paragraph.module';
     ScenarioModule,
     TagModule,
     ParagraphModule,
+    DatabaseModule,
+    SequelizeModule.forFeature([Tvseries])
   ],
   controllers: [AppController],
-  providers: [AppService/*, InitService*/],
+  providers: [AppService, InitService],
 })
 export class AppModule {}

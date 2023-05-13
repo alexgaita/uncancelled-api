@@ -18,7 +18,9 @@ export class Tvseries extends Model {
   @Column
   status: string;
 
-  @Column
+  @Column({
+    type: DataType.TEXT
+  })
   description: string;
 
   @Column
