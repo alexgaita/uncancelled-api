@@ -1,11 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTvseryDto } from './dto/create-tvsery.dto';
 import { UpdateTvseryDto } from './dto/update-tvsery.dto';
+import { InjectModel } from '@nestjs/sequelize';
+import { Tvsery } from './entities/tvsery.entity';
 
 @Injectable()
 export class TvseriesService {
+
+  constructor(
+    // @InjectModel(Tvsery)
+    // private readonly tvSeryModel: typeof Tvsery,
+  ) {}
+
   create(createTvseryDto: CreateTvseryDto) {
-    return 'This action adds a new tvsery';
+    // this.tvSeryModel.create(createTvseryDto);
+    return '';
   }
 
   findAll() {

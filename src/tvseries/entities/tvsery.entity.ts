@@ -26,6 +26,6 @@ export class Tvsery extends Model<Tvsery> {
     seasons: Seasons[];
 
     @HasMany(() => Tags)
-    tags: Tags;
+    tags: Tags[];
 
 }
