@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { TvseriesService } from './tvseries.service';
 import { CreateTvseriesDTO } from './dto/create-tvseries.dto';
 
@@ -16,5 +16,10 @@ export class TvseriesController {
     @Get()
     findAll() {
       return this.tvseriesService.findAll();
+    }
+
+    @Get(':id')
+    findById(@Param('id') id: string) {
+        return this.tvseriesService.findById(id);
     }
 }

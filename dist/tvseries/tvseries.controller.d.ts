@@ -5,4 +5,5 @@ export declare class TvseriesController {
     constructor(tvseriesService: TvseriesService);
     create(tvSeriesDto: CreateTvseriesDTO): Promise<import("./entity/tvseries.model").Tvseries>;
     findAll(): Promise<import("./entity/tvseries.model").Tvseries[]>;
+    findById(id: string): Promise<import("./entity/tvseries.model").Tvseries>;
 }

@@ -17,4 +17,8 @@ export class TvseriesService {
     findAll() {
        return  this.tvSeriesrepo.findAll();
     }
+
+    findById(id: string) {
+        return this.tvSeriesrepo.findByPk(id);
+    }
 }

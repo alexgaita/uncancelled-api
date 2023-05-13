@@ -5,4 +5,5 @@ export declare class TvseriesService {
     constructor(tvSeriesrepo: typeof Tvseries);
     create(tvSeriesDto: CreateTvseriesDTO): Promise<Tvseries>;
     findAll(): Promise<Tvseries[]>;
+    findById(id: string): Promise<Tvseries>;
 }

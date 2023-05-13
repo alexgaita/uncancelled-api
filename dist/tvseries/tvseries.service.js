@@ -26,6 +26,9 @@ let TvseriesService = class TvseriesService {
     findAll() {
         return this.tvSeriesrepo.findAll();
     }
+    findById(id) {
+        return this.tvSeriesrepo.findByPk(id);
+    }
 };
 TvseriesService = __decorate([
     (0, common_1.Injectable)(),

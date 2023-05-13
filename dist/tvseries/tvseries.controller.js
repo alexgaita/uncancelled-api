@@ -26,6 +26,9 @@ let TvseriesController = class TvseriesController {
     findAll() {
         return this.tvseriesService.findAll();
     }
+    findById(id) {
+        return this.tvseriesService.findById(id);
+    }
 };
 __decorate([
     (0, common_1.Post)(),
@@ -40,6 +43,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], TvseriesController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], TvseriesController.prototype, "findById", null);
 TvseriesController = __decorate([
     (0, common_1.Controller)('tvseries'),
     __metadata("design:paramtypes", [tvseries_service_1.TvseriesService])
