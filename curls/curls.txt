@@ -1,0 +1,2 @@
+curl -d "tvmovieid=bob&status=ongoing&description=this is a test&wallpaper=dasdas&userscore=12" -X POST http://localhost:4000/tvseries
+curl http://localhost:4000/tvseries

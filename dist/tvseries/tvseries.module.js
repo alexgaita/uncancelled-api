@@ -12,9 +12,9 @@ const tvseries_controller_1 = require("./tvseries.controller");
 const tvseries_service_1 = require("./tvseries.service");
 const tvseries_repository_1 = require("./tvseries.repository");
 const database_module_1 = require("../shared/database.module");
-const seasons_module_1 = require("../seasons/seasons.module");
 const sequelize_1 = require("@nestjs/sequelize");
 const tvseries_model_1 = require("./entity/tvseries.model");
+const seasons_module_1 = require("../seasons/seasons.module");
 let TvseriesModule = class TvseriesModule {
 };
 TvseriesModule = __decorate([
