@@ -19,16 +19,16 @@ export class TvseriesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.tvseriesService.findOne(+id);
+    return this.tvseriesService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTvseryDto: UpdateTvseryDto) {
-    return this.tvseriesService.update(+id, updateTvseryDto);
+    return this.tvseriesService.update(id, updateTvseryDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.tvseriesService.remove(+id);
+    return this.tvseriesService.remove(id);
   }
 }

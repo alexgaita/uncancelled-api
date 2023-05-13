@@ -8,28 +8,28 @@ import { Tvsery } from './entities/tvsery.entity';
 export class TvseriesService {
 
   constructor(
-    // @InjectModel(Tvsery)
-    // private readonly tvSeryModel: typeof Tvsery,
+    @InjectModel(Tvsery)
+    private readonly tvSeries: typeof Tvsery
   ) {}
 
   create(createTvseryDto: CreateTvseryDto) {
-    // this.tvSeryModel.create(createTvseryDto);
-    return '';
+    return this.tvSeries.create(createTvseryDto);
   }
 
   findAll() {
-    return `This action returns all tvseries`;
+    return  this.tvSeries.findAll();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} tvsery`;
+  findOne(id: string) {
+    return this.tvSeries.findByPk(id);
   }
 
-  update(id: number, updateTvseryDto: UpdateTvseryDto) {
-    return `This action updates a #${id} tvsery`;
+  update(id: string, updateTvseryDto: UpdateTvseryDto) {
+    //return this.tvSeries.update(id, updateTvseryDto);
+    return '';
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} tvsery`;
+  remove(id: string) {
+    return this.remove(id);
   }
 }
