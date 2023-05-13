@@ -3,6 +3,8 @@ import { CreateTagDTO } from "src/tag/dto/create-tag.dto";
 
 export class CreateTvseriesDTO {
   tvmovieid: string;
+
+  name: string;
   status: string;
   description: string;
   wallpaper: string;

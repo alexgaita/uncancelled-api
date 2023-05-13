@@ -8,6 +8,9 @@ export class Tvseries extends Model {
   @PrimaryKey
   @Column({ type: DataType.STRING, defaultValue: DataType.UUIDV4 })
   id: string;
+
+  @Column
+  name: string;
   
   @Column
   tvmovieid: string;
