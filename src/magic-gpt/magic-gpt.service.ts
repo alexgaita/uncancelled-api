@@ -1,11 +1,11 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
-const CHAT_GPT_URL = 'http://';
+const CHAT_GPT_URL = 'https://webhook.site/36d12604-0f23-4fbf-b540-12c52ff4e8b9';
 export enum speakingStyle {
   british = 'british',
 }
 export type GenerateSettings = {
-  violence: string;
+  violence: number;
   dramatic: number;
   funny: number;
   isInstructional: boolean;

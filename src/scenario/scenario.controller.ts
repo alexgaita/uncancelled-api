@@ -1,14 +1,43 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ScenarioService } from './scenario.service';
+import { MagicGptService } from '../magic-gpt/magic-gpt.service';
 import { CreateScenarioDto } from './dto/create-scenario.dto';
 import { UpdateScenarioDto } from './dto/update-scenario.dto';
+import {
+  GenerateSettings,
+  speakingStyle,
+} from '../magic-gpt/magic-gpt.service';
 
 @Controller('scenario')
 export class ScenarioController {
-  constructor(private readonly scenarioService: ScenarioService) {}
+  constructor(
+    private readonly scenarioService: ScenarioService,
+    private readonly magicGptService: MagicGptService,
+  ) {}
 
   @Post()
-  create(@Body() createScenarioDto: CreateScenarioDto) {
+  async create(@Body() createScenarioDto: CreateScenarioDto) {
+    const settings: GenerateSettings = {
+      violence: createScenarioDto.violence,
+      dramatic: createScenarioDto.dramatic,
+      funny: createScenarioDto.funny,
+      isInstructional: createScenarioDto.isInstructional,
+      isPixelArt: createScenarioDto.isPixelArt,
+      language: createScenarioDto.language,
+      style: createScenarioDto.style,
+    };
+    const _gptDesc = await this.magicGptService.generateDescription(
+      createScenarioDto.seasonId,
+      settings,
+    );
     return this.scenarioService.create(createScenarioDto);
   }
 
