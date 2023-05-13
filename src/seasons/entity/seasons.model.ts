@@ -10,6 +10,9 @@ export class Seasons extends Model<Seasons> {
     @Column({ type: DataType.STRING })
     id: string;
 
+    @Column({type: DataType.STRING})
+    description: string;
+
     @Column
     seriesId: string;
 
