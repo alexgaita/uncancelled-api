@@ -1,0 +1,17 @@
+{
+    "tvmovieid":"tests",
+    "status":"canceled",
+    "description":"agsdjasdjkascasc",
+    "wallpaper":"dasd",
+    "userscore":"11",
+    "seasons":[
+        {
+            "seriesId":"sdas",
+            "seasonNumber":"2",
+            "coverPhoto":"asd",
+            "episodes":[],
+            "scenario":[]
+        }
+    ],
+    "tag":[]
+}
