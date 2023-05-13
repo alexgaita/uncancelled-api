@@ -12,7 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChatgptService = exports.speakingStyle = void 0;
 const axios_1 = require("@nestjs/axios");
 const common_1 = require("@nestjs/common");
-const CHAT_GPT_URL = 'https://webhook.site/36d12604-0f23-4fbf-b540-12c52ff4e8b9';
+const process = require("process");
+const CHAT_GPT_URL = 'https://api.openai.com/v1/completions';
 var speakingStyle;
 (function (speakingStyle) {
     speakingStyle["british"] = "british";
@@ -24,8 +25,21 @@ let ChatgptService = class ChatgptService {
     async generateDescription(_seasonId, _settings) {
         console.log(_seasonId);
         console.log(_settings);
+        const chatGPTData = {
+            model: 'text-davinci-003',
+            prompt,
+            temperature: 1,
+            max_tokens: 100,
+        };
+        const apiKey = process.env.OPENAI_API_KEY;
+        const reqHeader = {
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${apiKey}`,
+            },
+        };
         const response = await this.http
-            .get(CHAT_GPT_URL)
+            .post(CHAT_GPT_URL, chatGPTData)
             .toPromise()
             .catch((err) => {
             throw new common_1.HttpException(err.response.data, err.response.status);
