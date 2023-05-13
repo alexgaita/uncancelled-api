@@ -9,11 +9,19 @@ import { EpisodesModule } from './episodes/episodes.module';
 import { ScenarioModule } from './scenario/scenario.module';
 import { TagModule } from './tag/tag.module';
 import { ParagraphModule } from './paragraph/paragraph.module';
-import { InitService } from './init.service';
+// import { InitService } from './init.service';
 
 @Module({
-  imports: [TvseriesModule, SeasonsModule, ChatgptModule, EpisodesModule, ScenarioModule, TagModule, ParagraphModule],
+  imports: [
+    TvseriesModule,
+    SeasonsModule,
+    ChatgptModule,
+    EpisodesModule,
+    ScenarioModule,
+    TagModule,
+    ParagraphModule,
+  ],
   controllers: [AppController],
-  providers: [AppService, InitService],
+  providers: [AppService/*, InitService*/],
 })
 export class AppModule {}
