@@ -1,6 +1,7 @@
 import { UUIDV4 } from 'sequelize';
 import { BeforeCreate, Column, DataType, HasMany, Model, PrimaryKey, Table } from 'sequelize-typescript';
 import { Seasons } from 'src/seasons/entity/seasons.model';
+import { Tag } from 'src/tag/entity/tag.model';
 
 @Table
 export class Tvseries extends Model {
@@ -26,8 +27,8 @@ export class Tvseries extends Model {
   @HasMany(() => Seasons)
    seasons: Seasons[];
 
-//     @HasMany(() => Tags)
-//     tags: Tags[];
+    @HasMany(() => Tag)
+    tags: Tag[];
 
     @BeforeCreate
     static assignId(instance: Tvseries) {

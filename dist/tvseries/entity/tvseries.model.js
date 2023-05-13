@@ -13,6 +13,7 @@ exports.Tvseries = void 0;
 const sequelize_1 = require("sequelize");
 const sequelize_typescript_1 = require("sequelize-typescript");
 const seasons_model_1 = require("../../seasons/entity/seasons.model");
+const tag_model_1 = require("../../tag/entity/tag.model");
 let Tvseries = class Tvseries extends sequelize_typescript_1.Model {
     static assignId(instance) {
         instance.id = sequelize_1.UUIDV4.toString();
@@ -47,6 +48,10 @@ __decorate([
     (0, sequelize_typescript_1.HasMany)(() => seasons_model_1.Seasons),
     __metadata("design:type", Array)
 ], Tvseries.prototype, "seasons", void 0);
+__decorate([
+    (0, sequelize_typescript_1.HasMany)(() => tag_model_1.Tag),
+    __metadata("design:type", Array)
+], Tvseries.prototype, "tags", void 0);
 __decorate([
     sequelize_typescript_1.BeforeCreate,
     __metadata("design:type", Function),

@@ -14,11 +14,14 @@ const tvseries_module_1 = require("./tvseries/tvseries.module");
 const seasons_module_1 = require("./seasons/seasons.module");
 const chatgpt_module_1 = require("./chatgpt/chatgpt.module");
 const episodes_module_1 = require("./episodes/episodes.module");
+const scenario_module_1 = require("./scenario/scenario.module");
+const tag_module_1 = require("./tag/tag.module");
+const paragraph_module_1 = require("./paragraph/paragraph.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [tvseries_module_1.TvseriesModule, seasons_module_1.SeasonsModule, chatgpt_module_1.ChatgptModule, episodes_module_1.EpisodesModule],
+        imports: [tvseries_module_1.TvseriesModule, seasons_module_1.SeasonsModule, chatgpt_module_1.ChatgptModule, episodes_module_1.EpisodesModule, scenario_module_1.ScenarioModule, tag_module_1.TagModule, paragraph_module_1.ParagraphModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

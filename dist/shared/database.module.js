@@ -10,7 +10,12 @@ exports.DatabaseModule = void 0;
 const common_1 = require("@nestjs/common");
 const sequelize_1 = require("@nestjs/sequelize");
 const episodes_entity_1 = require("../episodes/entity/episodes.entity");
+const art_model_1 = require("../paragraph/entity/art.model");
+const audio_entity_1 = require("../paragraph/entity/audio.entity");
+const paragraph_model_1 = require("../paragraph/entity/paragraph.model");
+const scenario_model_1 = require("../scenario/entity/scenario.model");
 const seasons_model_1 = require("../seasons/entity/seasons.model");
+const tag_model_1 = require("../tag/entity/tag.model");
 const tvseries_model_1 = require("../tvseries/entity/tvseries.model");
 let DatabaseModule = class DatabaseModule {
 };
@@ -25,7 +30,7 @@ DatabaseModule = __decorate([
                 dialect: 'mysql',
                 synchronize: true,
                 autoLoadModels: true,
-                models: [tvseries_model_1.Tvseries, seasons_model_1.Seasons, episodes_entity_1.Episodes]
+                models: [tvseries_model_1.Tvseries, seasons_model_1.Seasons, episodes_entity_1.Episodes, scenario_model_1.Scenario, tag_model_1.Tag, paragraph_model_1.Paragraph, art_model_1.Art, audio_entity_1.Audio]
             })]
     })
 ], DatabaseModule);
