@@ -10,8 +10,8 @@ export class TvseriesService {
         private readonly tvSeriesrepo: typeof Tvseries
     ) {}
 
-    create(tvSeriesDto: CreateTvseriesDTO) {
-        return this.tvSeriesrepo.create({tvSeriesDto});
+    create(tvSeriesDto: Partial<CreateTvseriesDTO>) {
+        return this.tvSeriesrepo.create(tvSeriesDto);
     }
 
     findAll() {
