@@ -10,7 +10,7 @@ import { join } from 'path';
 @Module({
   imports: [TvseriesModule, ScenarioModule, DatabaseModule,
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'),
+      rootPath: join(__dirname, '..', 'public', 'images'),
   }),],
   controllers: [AppController],
   providers: [AppService],
