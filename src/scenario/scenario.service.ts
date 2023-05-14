@@ -15,7 +15,7 @@ export class ScenarioService {
     private readonly tvseriesService: TvseriesService,
   ) {}
 
-  async create(createScenarioDto: CreateScenarioDto) {
+  async create(createScenarioDto: Partial<CreateScenarioDto>) {
     const tvSeries = await this.tvseriesService.findById(
       createScenarioDto.tvSeriesId,
     );
@@ -48,6 +48,7 @@ export class ScenarioService {
     const img = await this.chatGptService.generateDalleImg('a white cat');
     console.log(`Dalle rezult: ${img}`);
 
+    console.log('Scenarion: ', createScenarioDto);
     return await this.scenarioRepo.create(createScenarioDto);
   }
 

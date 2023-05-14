@@ -41,46 +41,48 @@ export class ChatgptService {
       temperature: 1,
       max_tokens: 100,
     };
-    const apiKey = process.env.OPENAI_API_KEY;
-    const reqHeader = {
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: `Bearer ${apiKey}`,
-      },
+    const apiKey = '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';
+    const headers =  {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${apiKey}`,
+    };
+    const requestOptions = {
+      headers: headers,
     };
     const response = await this.http
-      .post(CHAT_GPT_URL, chatGPTData)
+      .post(CHAT_GPT_URL, chatGPTData, requestOptions)
       .toPromise()
       .catch((err) => {
         throw new HttpException(err.response.data, err.response.status);
       });
-
+    console.log('Response: ', response.data);
     return response.data;
     // return this.http.get(CHAT_GPT_URL).pipe(map((response) => response.data));
   }
 
   async generateMidjourneySettings(): Promise<string> {
-    const descriptionPrompt = readFileSync('./filename.txt', 'utf-8');
+    const descriptionPrompt = 'Twenty years after modern civilization has been destroyed, Joel, a hardened survivor, is hired to smuggle Ellie, a 14-year-old girl, out of an oppressive quarantine zone. What starts as a small job soon becomes a brutal, heartbreaking journey, as they both must traverse the United States and depend on each other for survival.';
     const chatGPTData = {
       model: 'text-davinci-003',
       prompt: descriptionPrompt,
       temperature: 1,
       max_tokens: 100,
     };
-    const apiKey = process.env.OPENAI_API_KEY;
-    const reqHeader = {
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: `Bearer ${apiKey}`,
-      },
+    const apiKey = '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';
+    const headers =  {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${apiKey}`,
+    };
+    const requestOptions = {
+      headers: headers,
     };
     const response = await this.http
-      .post(CHAT_GPT_URL, chatGPTData)
+      .post(CHAT_GPT_URL, chatGPTData, requestOptions)
       .toPromise()
       .catch((err) => {
         throw new HttpException(err.response.data, err.response.status);
       });
-
+    console.log('ResponseMidSettings: ', response.data);
     return response.data;
     // return this.http.get(CHAT_GPT_URL).pipe(map((response) => response.data));
   }
@@ -90,27 +92,28 @@ export class ChatgptService {
   ): Promise<string> {
     console.log(_story);
 
-    const descriptionPrompt = readFileSync('./filename.txt', 'utf-8');
+    const descriptionPrompt = 'Twenty years after modern civilization has been destroyed, Joel, a hardened survivor, is hired to smuggle Ellie, a 14-year-old girl, out of an oppressive quarantine zone. What starts as a small job soon becomes a brutal, heartbreaking journey, as they both must traverse the United States and depend on each other for survival.';
     const chatGPTData = {
       model: 'text-davinci-003',
       prompt: descriptionPrompt,
       temperature: 1,
       max_tokens: 100,
     };
-    const apiKey = process.env.OPENAI_API_KEY;
-    const reqHeader = {
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: `Bearer ${apiKey}`,
-      },
+    const apiKey = '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';
+    const headers =  {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${apiKey}`,
+    };
+    const requestOptions = {
+      headers: headers,
     };
     const response = await this.http
-      .post(CHAT_GPT_URL, chatGPTData)
+      .post(CHAT_GPT_URL, chatGPTData, requestOptions)
       .toPromise()
       .catch((err) => {
         throw new HttpException(err.response.data, err.response.status);
       });
-
+    console.log('ResponseMidDesc: ', response.data);
     return response.data;
     // return this.http.get(CHAT_GPT_URL).pipe(map((response) => response.data));
   }
@@ -124,20 +127,21 @@ export class ChatgptService {
       n: 1,
       size: '1024x1024',
     };
-    const apiKey = process.env.OPENAI_API_KEY;
-    const reqHeader = {
-      headers: {
-        'Content-Type': 'application/json',
-        authorization: `Bearer ${apiKey}`,
-      },
+    const apiKey = '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';
+    const headers =  {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${apiKey}`,
+    };
+    const requestOptions = {
+      headers: headers,
     };
     const response = await this.http
-      .post(DALLE_URL, dallEData)
+      .post(DALLE_URL, dallEData, requestOptions)
       .toPromise()
       .catch((err) => {
         throw new HttpException(err.response.data, err.response.status);
       });
-
+      console.log('Response_DALE: ', response.data);
     return response.data;
     // return this.http.get(CHAT_GPT_URL).pipe(map((response) => response.data));
   }
