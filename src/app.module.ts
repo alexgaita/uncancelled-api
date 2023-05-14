@@ -14,6 +14,8 @@ import { DatabaseModule } from './shared/database.module';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Tvseries } from './tvseries/entity/tvseries.model';
 import { Seasons } from './seasons/entity/seasons.model';
+import { ServeStaticModule } from '@nestjs/serve-static/dist/serve-static.module';
+import { join } from 'path'
 
 @Module({
   imports: [
@@ -25,7 +27,10 @@ import { Seasons } from './seasons/entity/seasons.model';
     TagModule,
     ParagraphModule,
     DatabaseModule,
-    SequelizeModule.forFeature([Tvseries, Seasons])
+    SequelizeModule.forFeature([Tvseries, Seasons]),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'data'),
+    }),
   ],
   controllers: [AppController],
   providers: [AppService, InitService],

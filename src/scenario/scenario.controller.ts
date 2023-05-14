@@ -18,6 +18,12 @@ export class ScenarioController {
       return this.scenarioService.findAll();
     }
 
+
+    @Get(":id")
+    findAllBySeasonId(@Param('id') id: string){
+        return this.scenarioService.findBySeasonId(id);
+    }
+
     @Patch(':id')
     updateUser(@Param('id') scenarioId: string, @Body() updateScenarioDto: UpdateScenarioDto) {
       return this.scenarioService.update(scenarioId, updateScenarioDto);

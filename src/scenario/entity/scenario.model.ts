@@ -12,6 +12,9 @@ export class Scenario extends Model<Scenario> {
     storyName: string;
 
     @Column
+    wallpaper: string;
+
+    @Column
     like: number;
 
     @Column

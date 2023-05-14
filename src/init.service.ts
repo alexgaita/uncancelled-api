@@ -8,7 +8,7 @@ import * as file6 from '../data/file6.json';
 import * as file7 from '../data/file7.json';
 import * as file8 from '../data/file8.json';
 import { InjectModel } from "@nestjs/sequelize";
-import { Tvseries } from "./tvseries/entity/tvseries.model";
+import { Tvseries } from './tvseries/entity/tvseries.model';
 import { CreateTvseriesDTO } from "./tvseries/dto/create-tvseries.dto";
 import { CreateSeasonsDTO } from "./seasons/dto/create-seasons.dto";
 import { Seasons } from "./seasons/entity/seasons.model";
@@ -44,17 +44,17 @@ export class InitService implements OnModuleInit{
                 tvseries.description = file['overview'];
                 tvseries.name =  file['name'];
                 const seasons = file['seasons'];
-                const objextFromDb = await this.tvSeriesRepo.create(tvseries); 
+                const objextFromDb = await this.tvSeriesRepo.create(tvseries);
                 for (const season of seasons) {
                     const s: Partial<CreateSeasonsDTO> = new CreateSeasonsDTO();
                     s.seasonNumber = season['season_number'];
                     s.description = season['overview'];
                     this.seasonsRepo.create({
                         ...s,
-                        tvseriesId: objextFromDb.id, 
+                        tvseriesId: objextFromDb.id,
                     });
                 }
-            }
+      }
 
         } catch (error) {
             console.error('Ooops: ', error);

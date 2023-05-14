@@ -56,6 +56,10 @@ export class ScenarioService {
     return await this.scenarioRepo.findAll();
   }
 
+  async findBySeasonId(id: string) {
+    return await this.scenarioRepo.findAll({ where: { seasonId: id } });
+  }
+
   async update(id: string, updateScenarioDto: UpdateScenarioDto) {
     const scenario = await this.scenarioRepo.findByPk(id);
 
