@@ -11,7 +11,7 @@ export class CreateTvseriesDTO {
     description: string;
     wallpaper: string;
     userScore: string;
-    seasons: Seasons[];
+    seasons: string[];
     tags: Tag[];
     [key: number]: any;
 }

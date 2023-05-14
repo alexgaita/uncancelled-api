@@ -13,6 +13,7 @@ import { InitService } from './init.service';
 import { DatabaseModule } from './shared/database.module';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Tvseries } from './tvseries/entity/tvseries.model';
+import { Seasons } from './seasons/entity/seasons.model';
 
 @Module({
   imports: [
@@ -24,7 +25,7 @@ import { Tvseries } from './tvseries/entity/tvseries.model';
     TagModule,
     ParagraphModule,
     DatabaseModule,
-    SequelizeModule.forFeature([Tvseries])
+    SequelizeModule.forFeature([Tvseries, Seasons])
   ],
   controllers: [AppController],
   providers: [AppService, InitService],

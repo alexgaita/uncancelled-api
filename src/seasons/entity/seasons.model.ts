@@ -1,4 +1,5 @@
-import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { UUIDV4 } from "sequelize";
+import { BeforeCreate, BelongsTo, Column, DataType, ForeignKey, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
 import { Episodes } from "src/episodes/entity/episodes.entity";
 import { Scenario } from "src/scenario/entity/scenario.model";
 import { Tvseries } from "src/tvseries/entity/tvseries.model";
@@ -7,10 +8,10 @@ import { Tvseries } from "src/tvseries/entity/tvseries.model";
 export class Seasons extends Model<Seasons> {
 
     @PrimaryKey
-    @Column({ type: DataType.STRING })
+    @Column({ type: DataType.STRING, defaultValue: DataType.UUIDV4 })
     id: string;
 
-    @Column({type: DataType.STRING})
+    @Column({type: DataType.TEXT})
     description: string;
 
     @Column
@@ -34,4 +35,9 @@ export class Seasons extends Model<Seasons> {
 
     @BelongsTo(() => Tvseries)
     tvSery: Tvseries;
+
+    @BeforeCreate
+    static assignId(instance: Seasons) {
+        instance.id = UUIDV4.toString(); // Generate a UUID
+    }
 }
